@@ -1,0 +1,4 @@
+Django>=6.0
+psycopg[binary]
+python-dotenv
+django-environ>=0.12

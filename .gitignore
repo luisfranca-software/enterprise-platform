@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+venv/
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Docker
+*.pid
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Python cache
+*.egg-info/
+.eggs/
+
+
+# Django generated directories
+backend/logs/*
+!backend/logs/.gitkeep
+
+backend/media/*
+!backend/media/.gitkeep
+
+backend/static/*
+!backend/static/.gitkeep
+
+backend/staticfiles/
+
+# VSCode History
+.history/
+
+# Linux temporary files
+*~
