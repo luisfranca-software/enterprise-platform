@@ -15,12 +15,12 @@ A production-ready foundation that enforces clean architecture, environment-base
 
 [![CI](https://img.shields.io/badge/CI-passing-3FB950?style=flat-square&logo=github-actions&logoColor=white)](https://github.com/your-org/template-web-enterprise/actions)
 [![Coverage](https://img.shields.io/badge/Coverage-90%25-3FB950?style=flat-square&logo=codecov&logoColor=white)](https://codecov.io)
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![Django](https://img.shields.io/badge/Django-6-092E20?style=flat-square&logo=django)](https://djangoproject.com)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://postgresql.org)
 [![Redis](https://img.shields.io/badge/Redis-7-DC382D?style=flat-square&logo=redis&logoColor=white)](https://redis.io)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://docker.com)
-[![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?style=flat-square&logo=ubuntu&logoColor=white)](https://ubuntu.com)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-26.04-E95420?style=flat-square&logo=ubuntu&logoColor=white)](https://ubuntu.com)
 [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![code style: ruff](https://img.shields.io/badge/code_style-ruff-261230?style=flat-square)](https://docs.astral.sh/ruff)
@@ -31,6 +31,7 @@ A production-ready foundation that enforces clean architecture, environment-base
 
 - [Why this template?](#why-this-template)
 - [Project Philosophy](#project-philosophy)
+- [Development Environment](#development-environment)
 - [Features](#features)
 - [Architecture Overview](#architecture-overview)
 - [Technology Stack](#technology-stack)
@@ -82,16 +83,30 @@ Use this template when you need to build a **business-critical web system** and 
 
 ---
 
+## Development Environment
+
+| Component | Version / Tool |
+|-----------|---------------|
+| **Operating System** | Ubuntu 26.04 LTS |
+| **Runtime** | Python 3.14 |
+| **Virtual Environment** | `venv` (built-in) |
+| **Containerisation** | Docker |
+| **Version Control** | Git + GitHub CLI (`gh`) |
+| **AI Assistant** | OpenCode |
+| **Editor** | VS Code |
+
+---
+
 ## Features
 
-- **Python 3.12 + Django 6** — modern, typed, and async-ready
+- **Python 3.14 + Django 6** — modern, typed, and async-ready
 - **Modular app structure** — `apps/` for domain modules, `common/` for shared primitives
 - **Multi-environment settings** — `base.py` → `development.py` / `testing.py` / `production.py`
 - **Split requirements** — `base.txt`, `dev.txt`, `prod.txt` with zero noise in production
 - **Docker Compose orchestration** — Django, PostgreSQL, Redis, Nginx, and background workers
 - **Environment-first configuration** — `.env.dev`, `.env.prod`, `.env.test` with `.env.example`
 - **Automated CI/CD** — GitHub Actions workflows (lint, test, build, deploy)
-- **WSL2 + Ubuntu 24.04** — optimised for Windows development with Linux parity
+- **WSL2 + Ubuntu 26.04** — optimised for Windows development with Linux parity
 - **OpenCode AI integration** — team-wide agent conventions via `AGENTS.md`
 - **Makefile automation** — common commands standardised for the whole team
 
@@ -137,13 +152,13 @@ Use this template when you need to build a **business-critical web system** and 
 
 | Category | Choice | Rationale |
 |----------|--------|-----------|
-| **Runtime** | Python 3.12 | Pattern matching, improved types, faster CPython |
+| **Runtime** | Python 3.14 | Pattern matching, improved types, faster CPython |
 | **Framework** | Django 6 | Mature, batteries-included, strong ORM |
 | **Database** | PostgreSQL 16 | ACID compliance, JSONB, robust extension ecosystem |
 | **Cache** | Redis | Sub-millisecond latency, pub/sub, Celery broker |
 | **Reverse proxy** | Nginx | High-performance static serving, TLS, load balancing |
 | **Containerisation** | Docker + Compose | Reproducible environments, local ↔ production parity |
-| **OS** | Ubuntu 24.04 LTS | Long-term support, Docker-native, WSL2 compatible |
+| **OS** | Ubuntu 26.04 LTS | Long-term support, Docker-native, WSL2 compatible |
 | **Workflow** | WSL2 | Seamless Windows ↔ Linux development |
 | **CI/CD** | GitHub Actions | Tight GitHub integration, matrix builds, caching |
 | **AI assistant** | OpenCode | Team-consistent agent conventions via `AGENTS.md` |
@@ -227,7 +242,7 @@ template-web-enterprise/
 
 | Tool | Version | Notes |
 |------|---------|-------|
-| Python | 3.12+ | Required for local (non-Docker) development |
+| Python | 3.14+ | Required for local (non-Docker) development |
 | Docker | 24+ | Required for containerised development |
 | Docker Compose | v2 | Bundled with Docker Desktop / Docker Engine |
 | PostgreSQL | 16 | Only needed when running Django without Docker |
@@ -266,7 +281,7 @@ open http://localhost:8000
 
 ```bash
 # 1. Create and activate a virtual environment
-python3.12 -m venv .venv
+python3.14 -m venv .venv
 source .venv/bin/activate
 
 # 2. Install development dependencies
@@ -451,11 +466,11 @@ make down
 
 | Service | Image Base | Exposed Port | Purpose |
 |---------|-----------|--------------|---------|
-| `django` | `python:3.12-slim` | `8000` | Gunicorn WSGI server + ASGI |
+| `django` | `python:3.14-slim` | `8000` | Gunicorn WSGI server + ASGI |
 | `nginx` | `nginx:alpine` | `80`, `443` | Reverse proxy, static/media serving |
 | `postgres` | `postgres:16-alpine` | `5432` | Primary relational database |
 | `redis` | `redis:7-alpine` | `6379` | Cache, session store, Celery broker |
-| `workers` | `python:3.12-slim` | — | Celery / Huey background task workers |
+| `workers` | `python:3.14-slim` | — | Celery / Huey background task workers |
 
 Volumes are used for:
 - **PostgreSQL data** — survives container restarts
