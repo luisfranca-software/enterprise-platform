@@ -18,7 +18,7 @@ staticfiles/
 .env
 .env.*
 !.env.example
-!env/.env.*
+
 
 # IDE
 .vscode/
@@ -72,3 +72,8 @@ implementation/backend/staticfiles/
 
 # Linux temporary files
 *~
+
+
+# Local environment configuration
+env/.env.*
+!env/.env.example
