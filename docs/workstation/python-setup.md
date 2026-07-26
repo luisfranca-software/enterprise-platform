@@ -46,7 +46,7 @@ which python
 
 ```bash
 # With the virtual environment activated
-pip install -r backend/requirements/dev.txt
+pip install -r implementation/backend/requirements/dev.txt
 ```
 
 ### Deactivating
