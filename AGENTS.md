@@ -1,6 +1,6 @@
 # AGENTS.md — Engineering Manual
 
-**Project:** enterprise-platform  
+**Project:** enterprise-platform
 **Purpose:** Foundation for enterprise web systems (SGCI, CRM, ERP, Finance, HR, and AI-powered business applications)  
 **Stack:** Python 3.12 · Django 6 · PostgreSQL 16 · Redis 7 · Docker · Nginx  
 **Audience:** Human developers and AI coding agents (OpenCode, GPT, Claude, Gemini, and future models)
