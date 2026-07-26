@@ -15,7 +15,7 @@ repository when published as a public proprietary repository.
 
 | Setting | Value |
 |---------|-------|
-| **Repository name** | `template-web-enterprise` (or rename to `enterprise-platform`) |
+| **Repository name** | `enterprise-platform` |
 | **Description** | Enterprise-grade platform architecture and implementation portfolio demonstrating specification-driven development, security, testing, DevOps, observability and software governance. |
 | **Website** | [TO BE DEFINED] |
 | **Default branch** | `main` |

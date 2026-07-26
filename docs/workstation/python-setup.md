@@ -39,7 +39,7 @@ source .venv/bin/activate
 
 # Verify
 which python
-# /home/user/projects/template-web-enterprise/.venv/bin/python
+# /home/user/projects/enterprise-platform/.venv/bin/python
 ```
 
 ### Installing project dependencies
