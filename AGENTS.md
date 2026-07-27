@@ -1,6 +1,6 @@
 # AGENTS.md — Engineering Manual
 
-**Project:** template-web-enterprise  
+**Project:** enterprise-platform
 **Purpose:** Foundation for enterprise web systems (SGCI, CRM, ERP, Finance, HR, and AI-powered business applications)  
 **Stack:** Python 3.12 · Django 6 · PostgreSQL 16 · Redis 7 · Docker · Nginx  
 **Audience:** Human developers and AI coding agents (OpenCode, GPT, Claude, Gemini, and future models)
@@ -24,9 +24,9 @@ Build the definitive open-source Django starter for business-critical web system
 
 ```
 Presentation Layer    │  views, serializers, URL patterns
-Service Layer         │  backend/common/services/ – orchestration logic
-Domain Layer          │  backend/apps/*/ – models, domain logic
-Infrastructure Layer  │  backend/common/ – middleware, permissions, utils
+Service Layer         │  implementation/backend/common/services/ – orchestration logic
+Domain Layer          │  implementation/backend/apps/*/ – models, domain logic
+Infrastructure Layer  │  implementation/backend/common/ – middleware, permissions, utils
 ```
 
 **Dependency rule:** Inner layers never import from outer layers. `apps/*` may import from `common/`, but `common/` never imports from `apps/*`.
@@ -35,12 +35,12 @@ Infrastructure Layer  │  backend/common/ – middleware, permissions, utils
 
 | Path | Responsibility |
 |------|---------------|
-| `backend/apps/*/` | One Django app per bounded business domain |
-| `backend/common/` | Shared primitives: constants, exceptions, helpers, middleware, mixins, permissions, services, utils |
-| `backend/core/` | Django project root — settings, root URL conf, WSGI/ASGI entrypoints |
-| `backend/core/settings/` | Split settings: `base.py` (shared) → `development.py` / `testing.py` / `production.py` |
-| `backend/requirements/` | Split dependencies: `base.txt` (shared) → `dev.txt` / `prod.txt` |
-| `backend/tests/` | Project-wide integration and end-to-end tests |
+| `implementation/backend/apps/*/` | One Django app per bounded business domain |
+| `implementation/backend/common/` | Shared primitives: constants, exceptions, helpers, middleware, mixins, permissions, services, utils |
+| `implementation/backend/core/` | Django project root — settings, root URL conf, WSGI/ASGI entrypoints |
+| `implementation/backend/core/settings/` | Split settings: `base.py` (shared) → `development.py` / `testing.py` / `production.py` |
+| `implementation/backend/requirements/` | Split dependencies: `base.txt` (shared) → `dev.txt` / `prod.txt` |
+| `implementation/backend/tests/` | Project-wide integration and end-to-end tests |
 | `docker/` | Per-service Docker assets (Dockerfiles, configs, entrypoint scripts) |
 | `env/` | `.env.dev`, `.env.prod`, `.env.test` — one per environment |
 | `frontend/` | Frontend application (framework TBD by the team adopting the template) |
@@ -77,7 +77,7 @@ development.py  │  testing.py  │  production.py
 
 ## 6. App Organization
 
-Every Django app under `backend/apps/` follows this layout:
+Every Django app under `implementation/backend/apps/` follows this layout:
 
 ```
 apps/<app_name>/
@@ -121,7 +121,7 @@ apps/<app_name>/
 |---------|------|---------|
 | Linting | ruff | `ruff check .` |
 | Formatting | ruff format | `ruff format .` |
-| Type checking | mypy | `mypy backend/` |
+| Type checking | mypy | `mypy implementation/backend/` |
 
 Configuration lives in `pyproject.toml`. Rules enforced: line length 120, double quotes for strings, isort-compatible import sorting, trailing commas in multi-line collections, two blank lines before classes/functions, one before methods. No bare `except:`, no `# noqa` without a rule code.
 
@@ -169,7 +169,7 @@ All configuration is driven by environment variables loaded via `django-environ`
 
 ## 11. Dependency Management
 
-Dependencies are split into three files under `backend/requirements/`:
+Dependencies are split into three files under `implementation/backend/requirements/`:
 
 ```
 base.txt  →  shared across all environments (Django, django-environ, psycopg, redis)
@@ -383,7 +383,7 @@ A feature, fix, or chore is "done" when:
 | **Module apps** | `apps/sgci/`, `apps/crm/`, `apps/erp/`, `apps/finance/`, `apps/hr/` |
 | **AI features** | LLM-powered assistants, document intelligence, predictive analytics |
 
-Each item is an app under `backend/apps/` consuming `common/` primitives. The template stays generic; product-specific code lives in the adopting repository.
+Each item is an app under `implementation/backend/apps/` consuming `common/` primitives. The template stays generic; product-specific code lives in the adopting repository.
 
 ---
 

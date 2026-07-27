@@ -1,6 +1,6 @@
 # Workstation Baseline
 
-This document defines the standard development workstation for the **template-web-enterprise** project. Every developer should align their environment with these specifications to ensure consistent behaviour across the team.
+This document defines the standard development workstation for the **enterprise-platform** project. Every developer should align their environment with these specifications to ensure consistent behaviour across the team.
 
 ## Baseline Specification
 

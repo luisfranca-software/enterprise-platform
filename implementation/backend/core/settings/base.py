@@ -15,10 +15,10 @@ import environ
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-# BASE_DIR points to the backend/ directory (parent of core/).
+# BASE_DIR points to the implementation/backend/ directory (parent of core/).
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# PROJECT_ROOT points to the repository root (parent of backend/).
+# PROJECT_ROOT points to the repository root (parent of implementation/backend/).
 PROJECT_ROOT = BASE_DIR.parent
 
 # ---------------------------------------------------------------------------

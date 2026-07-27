@@ -1,15 +1,118 @@
-MIT License
+PROPRIETARY SOFTWARE AND DOCUMENTATION LICENSE
 
-Copyright (c) 2026 Lu-Fran
+Copyright (c) 2026 Luís Eduardo Carvalho França
+All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+------------------------------------------------------------------------
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. PROPRIETARY WORKS
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+This repository, including without limitation all software, source code,
+architecture documents, specifications, diagrams, data models, workflows,
+tests, documentation, comments, configurations, scripts, tooling, and all
+associated materials (collectively, the "Materials") are proprietary works
+belonging to the copyright owner identified above.
+
+2. INTELLECTUAL PROPERTY RIGHTS
+
+Copyright and all other intellectual-property rights in and to the Materials
+remain with the copyright owner. This licence does not transfer any
+intellectual-property rights.
+
+3. PERMITTED PUBLIC ACCESS
+
+Public access to this repository is provided solely for the following
+purposes:
+
+  a. Viewing the repository contents through the hosting platform interface.
+  b. Technical and architectural evaluation of the Materials.
+  c. Recruitment assessment and candidate evaluation.
+  d. Professional portfolio review.
+  e. Commercial capability assessment by prospective partners or clients.
+
+4. NO LICENSE GRANT
+
+Access to the repository does not grant a licence to:
+
+  a. Use the Materials for any purpose beyond viewing and evaluation.
+  b. Execute the Materials for production or commercial purposes.
+  c. Copy, reproduce, or duplicate the Materials.
+  d. Modify, adapt, or translate the Materials.
+  e. Distribute, publish, or disseminate the Materials.
+  f. Sublicense, sell, rent, or host the Materials.
+  g. Provide the Materials as a managed service or hosted offering.
+  h. Create derivative works from the Materials.
+  i. Incorporate the Materials into another product or service.
+  j. Use the Materials to develop a substantially similar product or service.
+
+5. WRITTEN AUTHORISATION REQUIRED
+
+Any use of the Materials beyond viewing and evaluation requires prior express
+written authorisation from the copyright owner. Verbal agreements are not
+sufficient.
+
+6. PLATFORM FUNCTIONALITY
+
+Forking, cloning, downloading, or using any other functionality made
+available by the hosting platform does not grant any intellectual-property
+or usage rights beyond the permitted public access defined in Section 3.
+
+7. COPYRIGHT AND PROPRIETARY NOTICES
+
+Copyright notices, authorship notices, licence notices, and proprietary
+markings may not be removed, altered, or obscured from any copy of the
+Materials.
+
+8. TRADEMARKS AND BRANDING
+
+The project name, branding, logos, and associated identifiers may not be
+used to imply endorsement, affiliation, or authorisation by the copyright
+owner without prior written consent.
+
+9. NO GRANT OF PATENTS OR TRADEMARKS
+
+No patent, trademark, trade-secret, or commercial licence is granted under
+this licence, whether by implication, estoppel, or otherwise.
+
+10. DISCLAIMER OF WARRANTIES
+
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTIES, REPRESENTATIONS,
+OR GUARANTEES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+TITLE, AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE COPYRIGHT OWNER BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE,
+ARISING FROM, OUT OF, OR IN CONNECTION WITH THE MATERIALS OR THE USE OR
+OTHER DEALINGS IN THE MATERIALS.
+
+12. UNAUTHORIZED USE
+
+Unauthorised use, copying, distribution, modification, or exploitation of
+the Materials may result in suspension of authorisation and appropriate
+civil, criminal, or other legal measures.
+
+13. SEVERABILITY
+
+If any provision of this licence is found to be unenforceable or invalid,
+the remaining provisions shall continue in full force and effect.
+
+14. GOVERNING LAW
+
+This licence shall be governed by and construed in accordance with the laws
+applicable to the copyright owner's jurisdiction, without regard to
+conflict-of-law principles.
+
+15. ENTIRE AGREEMENT
+
+This licence constitutes the entire agreement between the parties with
+respect to the Materials and supersedes all prior or contemporaneous
+understandings or agreements.
+
+------------------------------------------------------------------------
+
+NOTICE: This licence must be reviewed and approved by qualified legal
+counsel before commercial distribution, customer licensing, external
+collaboration, or formal enforcement.

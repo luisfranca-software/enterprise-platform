@@ -17,6 +17,8 @@ staticfiles/
 # Environment
 .env
 .env.*
+!.env.example
+
 
 # IDE
 .vscode/
@@ -54,19 +56,24 @@ desktop.ini
 
 
 # Django generated directories
-backend/logs/*
-!backend/logs/.gitkeep
+implementation/backend/logs/*
+!implementation/backend/logs/.gitkeep
 
-backend/media/*
-!backend/media/.gitkeep
+implementation/backend/media/*
+!implementation/backend/media/.gitkeep
 
-backend/static/*
-!backend/static/.gitkeep
+implementation/backend/static/*
+!implementation/backend/static/.gitkeep
 
-backend/staticfiles/
+implementation/backend/staticfiles/
 
 # VSCode History
 .history/
 
 # Linux temporary files
 *~
+
+
+# Local environment configuration
+env/.env.*
+!env/.env.example
