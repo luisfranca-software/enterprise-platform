@@ -2,7 +2,7 @@
 
 **Project:** enterprise-platform
 **Purpose:** Foundation for enterprise web systems (SGCI, CRM, ERP, Finance, HR, and AI-powered business applications)  
-**Stack:** Python 3.12 · Django 6 · PostgreSQL 16 · Redis 7 · Docker · Nginx  
+**Stack:** Python 3.13+ · Django 5.2 LTS · PostgreSQL 16 · Redis 7 · Docker · Nginx
 **Audience:** Human developers and AI coding agents (OpenCode, GPT, Claude, Gemini, and future models)
 
 ---
@@ -42,7 +42,7 @@ Infrastructure Layer  │  implementation/backend/common/ – middleware, permis
 | `implementation/backend/requirements/` | Split dependencies: `base.txt` (shared) → `dev.txt` / `prod.txt` |
 | `implementation/backend/tests/` | Project-wide integration and end-to-end tests |
 | `docker/` | Per-service Docker assets (Dockerfiles, configs, entrypoint scripts) |
-| `env/` | `.env.dev`, `.env.prod`, `.env.test` — one per environment |
+| `.env.example` | Canonical environment-variable template with safe placeholder values |
 | `frontend/` | Frontend application (framework TBD by the team adopting the template) |
 | `scripts/` | Automation and utility scripts |
 | `docs/` | ADRs, runbooks, architecture decision records |
@@ -107,7 +107,7 @@ apps/<app_name>/
 
 ## 7. Coding Standards
 
-- All code is written in Python 3.12+ using modern type annotations.
+- All code is written in Python 3.13+ using modern type annotations.
 - Every function and method has typed signatures. Use `|` syntax for unions (`str | None`), `list[X]`, `dict[str, X]`.
 - Use `@dataclass` or Pydantic models for complex data containers.
 - Avoid `*args` and `**kwargs` unless wrapping a foreign API.
@@ -147,6 +147,8 @@ Configuration lives in `pyproject.toml`. Rules enforced: line length 120, double
 
 All configuration is driven by environment variables loaded via `django-environ`. Never hardcode configuration in settings files.
 
+The old `env/` directory model (`env/.env.dev`, `env/.env.prod`, `env/.env.test`) is **removed**. The approved model is:
+
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `SECRET_KEY` | Yes | Django secret key (rotate per environment) |
@@ -162,26 +164,32 @@ All configuration is driven by environment variables loaded via `django-environ`
 
 **Rules:**
 - Every variable has a documented default or is clearly marked required.
-- `.env.example` documents every variable with a placeholder value. Keep it in sync.
-- `env/.env.dev` is committed with safe defaults for local development.
-- `env/.env.prod` and `env/.env.test` contain only placeholders — real values are injected at deploy time.
+- `.env.example` is the canonical environment-variable contract. It must document every supported external configuration variable using safe example or placeholder values and must remain synchronized with the application settings.
+- `.env` is optional and intended for local development only. It must never be committed.
+- `.env.example` is version-controlled and contains only safe example or placeholder values.
+- CI, test, staging, and production configuration must be supplied through runtime environment variables, CI/CD configuration, container orchestration, or the approved secrets-management mechanism.
+- Real credentials, tokens, private keys, passwords, and other secrets must never be stored in repository environment files.
 - Never commit real secrets. Use your secret manager (GitHub Secrets, Vault, 1Password, etc.).
 
 ## 11. Dependency Management
 
-Dependencies are split into three files under `implementation/backend/requirements/`:
+Dependencies are declared in `implementation/backend/requirements/` using pip-compatible requirements files. This is the canonical runtime dependency source.
 
 ```
-base.txt  →  shared across all environments (Django, django-environ, psycopg, redis)
-dev.txt   →  base.txt + dev-only (pytest, ruff, mypy, factory_boy, ipython)
-prod.txt  →  base.txt + prod-only (gunicorn, sentry-sdk, uvicorn)
+implementation/backend/requirements/base.txt  →  shared across all environments (Django, django-environ, psycopg)
+implementation/backend/requirements/dev.txt   →  base.txt + dev-only (pytest, ruff, mypy, ipython)
+implementation/backend/requirements/prod.txt  →  base.txt + prod-only (gunicorn)
 ```
+
+`pyproject.toml` contains project metadata, build-system configuration, and Python version constraints. Runtime dependencies MUST NOT be duplicated in `pyproject.toml`.
 
 **Rules:**
-- Pin major/minor versions (`django>=6.0,<6.1`), never pin patch unless required.
+- Pin major/minor versions (`Django>=5.2,<5.3`), never pin patch unless required.
 - `dev.txt` and `prod.txt` start with `-r base.txt`.
-- Add a new dependency to `base.txt` only if it is used in every environment.
+- Add a new dependency to `base.txt` only if used in every environment.
 - Keep the dependency tree lean. No dependency is added without a clear justification in the commit message.
+- Dev-only dependencies (pytest, ruff, mypy, etc.) go in `dev.txt`.
+- Production-only dependencies (gunicorn, etc.) go in `prod.txt`.
 
 ## 12. Database Guidelines
 

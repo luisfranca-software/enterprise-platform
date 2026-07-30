@@ -7,6 +7,7 @@ __pycache__/
 # Virtual Environment
 .venv/
 venv/
+env/
 
 # Django
 *.sqlite3
@@ -14,11 +15,10 @@ db.sqlite3
 media/
 staticfiles/
 
-# Environment
+# Environment configuration
 .env
 .env.*
 !.env.example
-
 
 # IDE
 .vscode/
@@ -72,8 +72,3 @@ implementation/backend/staticfiles/
 
 # Linux temporary files
 *~
-
-
-# Local environment configuration
-env/.env.*
-!env/.env.example
